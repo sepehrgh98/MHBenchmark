@@ -1,0 +1,22 @@
+{
+  "$id": "https://example.com/mhbench/canonical.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MHBench Canonical Record v1",
+  "type": "object",
+  "required": ["id","dataset","split","task","group_id","input"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "mhbench-v1" },
+    "id": { "type": "string", "minLength": 1 },
+    "dataset": { "type": "string", "enum": ["DSM","IMHI","ESConv","CounselChat"] },
+    "subsource": { "type": "string" },
+    "split": { "type": "string", "enum": ["TEST"] },
+    "task": { "type": "string", "enum": ["mcq","classification","generation","dialogue","qa"] },
+    "subtype": { "type": "string" },
+    "group_id": { "type": "string", "minLength": 1 },
+    "input": { "type": "object" },
+    "choices": { "type": "array", "items": { "type": "string" } },
+    "target": { "type": "object" },
+    "meta": { "type": "object" }
+  },
+  "additionalProperties": true
+}
